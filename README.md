@@ -1,30 +1,33 @@
-# React + TypeScript + Vite
+# Guitar Shop - Typescript 🎸
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+## Summary: 📋 
 
-Currently, two official plugins are available:
+https://laurasguitarshop.netlify.app/
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+Project based on a store selling guitars. 
+We have done the migration of the previous project made with JS adapting it to Typescript: https://github.com/lauraherrero/redux_guitarshop
 
-## Expanding the ESLint configuration
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
 
-- Configure the top-level `parserOptions` property like this:
+## Technology Stack 💻
+The application has been made from scratch with React using Vite and a store has been used to manage different states of the application. Also react redux has been used to help the handling of reducers and actions.
 
-```js
-export default {
-  // other rules...
-  parserOptions: {
-    ecmaVersion: 'latest',
-    sourceType: 'module',
-    project: ['./tsconfig.json', './tsconfig.node.json'],
-    tsconfigRootDir: __dirname,
-  },
-}
-```
+<ul>
+  <li>React</li>
+  <li>Redux</li>
+  <li>Typescript</li>
+  <li>Git</li>
+  <li>Vite</li>
+  <li>LocalStorage</li>
+</ul>
 
-- Replace `plugin:@typescript-eslint/recommended` to `plugin:@typescript-eslint/recommended-type-checked` or `plugin:@typescript-eslint/strict-type-checked`
-- Optionally add `plugin:@typescript-eslint/stylistic-type-checked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and add `plugin:react/recommended` & `plugin:react/jsx-runtime` to the `extends` list
+
+## Instructions ✍
+
+### How to run: 
+
+<pre>
+    <p>npm install <br></p>
+    <p>npm run dev <br></p>
+    
+</pre>
