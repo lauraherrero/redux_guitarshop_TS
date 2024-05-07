@@ -1,8 +1,15 @@
+import { useMemo } from "react";
 import type { HeaderProps } from "../types/types";
 
 
 
-export const Header = ({ cart, removeFromCart, isEmpty, cartTotal, increaseQuantity, decreaseQuantity, clearCart } : HeaderProps ) => {
+export const Header = ({ cart, dispatch } : HeaderProps ) => {
+
+
+  //State derivado
+  const isEmpty = useMemo(() => cart.length === 0, [cart]);
+  const cartTotal = useMemo(() => cart.reduce((total, item) => total + (item.quantity * item.price), 0), [cart]);
+
 
   return (
     <header className="py-5 header">
@@ -53,16 +60,16 @@ export const Header = ({ cart, removeFromCart, isEmpty, cartTotal, increaseQuant
                             <td>{guitar.name}</td>
                             <td className="fw-bold">${guitar.price}</td>
                             <td className="flex align-items-start gap-4">
-                              <button type="button" className="btn btn-dark" onClick={() => decreaseQuantity(guitar.id)}>
+                              <button type="button" className="btn btn-dark" onClick={() => dispatch({type: 'DECREASE_QUANTITY', payload: {id: guitar.id}})}>
                                 -
                               </button>
                               {guitar.quantity}
-                              <button type="button" className="btn btn-dark" onClick={() => increaseQuantity(guitar.id)}>
+                              <button type="button" className="btn btn-dark" onClick={() => dispatch({type: 'INCREASE_QUANTITY', payload: {id: guitar.id}})}>
                                 +
                               </button>
                             </td>
                             <td>
-                              <button className="btn btn-danger" type="button" onClick={() =>removeFromCart(guitar.id)}>
+                              <button className="btn btn-danger" type="button" onClick={() =>dispatch({type: 'REMOVE_FROM_CART', payload: {id: guitar.id } })}>
                                 X
                               </button>
                             </td>
@@ -76,7 +83,7 @@ export const Header = ({ cart, removeFromCart, isEmpty, cartTotal, increaseQuant
                     </p>
                   </>
                 )}
-                <button className="btn btn-dark w-100 mt-3 p-2" onClick={clearCart}>
+                <button className="btn btn-dark w-100 mt-3 p-2" onClick={() => dispatch({type: 'CLEAR_CART'})}>
                   Vaciar Carrito
                 </button>
               </div>
