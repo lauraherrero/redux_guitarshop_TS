@@ -2,7 +2,7 @@ import type { GuitarProps } from "../types/types";
 
 
 
-export const GuitarItem = ({ guitar, dispatch }: GuitarProps) => {
+export const GuitarItem = ({ guitar, addToCart }: GuitarProps) => {
 
   const { name, image, description, price } = guitar
 
@@ -23,7 +23,7 @@ export const GuitarItem = ({ guitar, dispatch }: GuitarProps) => {
             {description}
           </p>
           <p className="fw-black text-primary fs-3">${price}</p>
-          <button type="button" className="btn btn-dark w-100" onClick={() => dispatch({ type: 'ADD_TO_CART', payload: {item: guitar} })}>
+          <button type="button" className="btn btn-dark w-100" onClick={() => addToCart(guitar)}>
             Agregar al Carrito
           </button>
         </div>
